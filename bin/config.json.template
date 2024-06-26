@@ -3,7 +3,7 @@
   "server_port": "8080",
   "log_level": "SEVERE",
   "testing": "true",
-  "static_path": "/opt/nk2/share",
+  "static_path": "/opt/nk2/bin/share",
   "lib_path": "lib",
   "profile_img_path": "img",
   "profile_res_path": "",

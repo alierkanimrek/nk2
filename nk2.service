@@ -1,0 +1,15 @@
+[Unit]
+Description=NK2 Server Application
+After=multi-user.target
+
+[Service]
+User=admin
+Type=simple
+WorkingDirectory=/opt/nk2/bin
+ExecStart=/bin/dart /opt/nk2/bin/server.dart
+#StandardInput=tty-force
+Restart=always
+RestartSec=15
+
+[Install]
+WantedBy=multi-user.target
