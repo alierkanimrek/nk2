@@ -1,0 +1,18 @@
+{
+  "domain" : "localhost",
+  "server_port": "8080",
+  "log_level": "SEVERE",
+  "testing": "true",
+  "static_path": "/opt/nk2/share",
+  "lib_path": "lib",
+  "profile_img_path": "img",
+  "profile_res_path": "",
+  "gform1_url" : "",
+  "gform1_file" : "gform1.tsv",
+  "gform1_titles": "time,target,stars,type,comment,nickname,name,allow",
+  "gform2_url" : "",
+  "gform2_file" : "gform2.tsv",
+  "gform2_titles": "time,type,comment,nickname,name,allow",
+  "blog1_url" : "",
+  "blog1_file" : "blogger1.xml"
+}

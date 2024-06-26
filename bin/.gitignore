@@ -1,0 +1,4 @@
+*.log*
+*.tsv*
+*.xml*
+config.json
