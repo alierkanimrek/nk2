@@ -32,6 +32,11 @@ systemctl enable nk2
 systemctl start nk2
 sleep 3
 systemctl status nk2
+echo "wget -c https://raw.githubusercontent.com/alierkanimrek/nk2/main/update.sh">downupdate.sh
+echo "sh update.sh">>downupdate.sh
+chmod +x downupdate.sh
+ls -l
+read -p "just run downupdate.sh for updating"
 
 
 
