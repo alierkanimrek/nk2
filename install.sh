@@ -1,21 +1,33 @@
 #!/bin/bash
+echo "There are users into system"
+users
+echo "Installation for user '$1'"
+read -p "is it ok?"
+echo "Did you change username in service script"
+cat nk2/nk2.service
+read -p "Ready for apt installations..."
 apt-get update
 apt install git apt-transport-https gpg
 wget -qO- https://dl-ssl.google.com/linux/linux_signing_key.pub | gpg  --dearmor -o /usr/share/keyrings/dart.gpg
 echo 'deb [signed-by=/usr/share/keyrings/dart.gpg arch=amd64] https://storage.googleapis.com/download.dartlang.org/linux/debian stable main' \
   | tee /etc/apt/sources.list.d/dart_stable.list
 apt-get update && apt-get install dart
+read -p "Ready for download..."
 rm -rf nk2
 git clone https://github.com/alierkanimrek/nk2.git
+read -p "Ready for install to /opt/nk2"
 mkdir /opt/nk2
 cp nk2/* /opt/nk2 -r
-chown admin:admin /opt/nk2 -R
+chown $1:$1 /opt/nk2 -R
+read -p "Ready for get dart packages..."
+su - $1 -c "cd /opt/nk2; dart pub get"
+read -p "Ready for configuration..."
 mkdir /etc/nk2
 cp nk2/bin/config.json.template /etc/nk2/config.json
+nano /etc/nk2/config.json
+read -p "Ready for service installation..."
 cp -v nk2/nk2.service /lib/systemd/system/nk2.service
 systemctl daemon-reload
-su - admin -c "cd /opt/nk2; dart pub get"
-nano /etc/nk2/config.json
 systemctl enable nk2
 systemctl start nk2
 sleep 3
