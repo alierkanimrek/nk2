@@ -3,8 +3,6 @@ echo "There are users into system"
 users
 echo "Installation for user '$1'"
 read -p "is it ok?" x
-echo "Did you change username in service script"
-cat nk2/nk2.service
 read -p "Ready for apt installations..." x
 apt-get update
 apt install git apt-transport-https gpg
@@ -26,6 +24,8 @@ mkdir /etc/nk2
 cp nk2/bin/config.json.template /etc/nk2/config.json
 nano /etc/nk2/config.json
 read -p "Ready for service installation..." x
+read -p "Please change username in service script"
+nano nk2/nk2.service
 cp -v nk2/nk2.service /lib/systemd/system/nk2.service
 systemctl daemon-reload
 systemctl enable nk2
