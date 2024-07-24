@@ -1,6 +1,4 @@
 import 'package:shelf/shelf.dart';
-import 'atom.dart';
-import 'html.dart';
 import 'base_html.dart';
 import 'utils.dart';
 import 'widgets_html.dart';
@@ -53,18 +51,18 @@ class Numeroloji extends Base{
 
 
   List<String> commentCarousel() {
-    return tDiv("container", c: [
-      tagx("h1 title has-text-centered section-title", attr:{ "data-aos":"fade-down"}, after_c: subContent["sub-title-1"]),
-      carousel1("car", glob.form2.randomRecList(3), (Map<String, String> rec){
-        return tagx("p", before_c: shortOf(rec["comment"]!,25), c:[
-          rec["comment"]!.split(" ").length<=25?[]:
-          tagx("a button is-rounded is-small",
-              attr: {"href": "/numeroloji-danismanligi/yorumlar#${rec["pos"]!}"},
-              after_c: glob.content.isA("readmore")),
-        ]);
-      })
-    ]);
-
+    return
+      $.div("container")(c:[
+        $.h1("title has-text-centered section-title")( a:{ "data-aos":"fade-down"}, after: subContent["sub-title-1"]),
+        carousel1("car", glob.form2.randomRecList(3), (Map<String, String> rec){
+          return
+            $.p()(before: shortOf(rec["comment"]!,25), c:[
+              rec["comment"]!.split(" ").length<=25
+                ?[]
+                :$.a("/numeroloji-danismanligi/yorumlar#${rec["pos"]!}", "button is-rounded is-small")(after: glob.content.isA("readmore")),
+            ]);
+        })
+      ]);
   }
 
 
@@ -114,32 +112,31 @@ class Numeroloji extends Base{
 
 
   List<String> sub1() {
-
-    return tComment("\n", [
-      tagx("h1 title has-text-centered section-title", attr:{ "data-aos":"fade-down"}, after_c: subContent["sub-title-3"]),
-      tDiv("block", c:[
-        tagx("p has-text-centered mb-5", attr:{ "data-aos":"fade-up"}, after_c: subContent["sub-content-3"]),
-        vButtons([
-          Button(
-              glob.content.isA("dm-on-instagram"),
-              "is-large",
-              glob.content.isADyn("contact-online")[0][1],
-              icon: glob.content.isADyn("contact-online")[0][0],
-              iconClss: "icon is-large",
-              attr: {"data-aos":"fade-right"}
-          ),
-          Button(
-              glob.content.isA("tomail"),
-              "is-large",
-              glob.content.isADyn("contact-online")[4][1],
-              icon: glob.content.isADyn("contact-online")[4][0],
-              iconClss: "icon is-large",
-              attr: {"data-aos":"fade-left"}
-          )
+    return
+      $.fake([
+        $.h1("title has-text-centered section-title")(a:{ "data-aos":"fade-down"}, after: subContent["sub-title-3"]),
+        $.div("block")( c:[
+          $.p("has-text-centered mb-5")( a:{ "data-aos":"fade-up"}, after: subContent["sub-content-3"]),
+            vButtons([
+              Button(
+                  glob.content.isA("dm-on-instagram"),
+                  "is-large",
+                  glob.content.isADyn("contact-online")[0][1],
+                  icon: glob.content.isADyn("contact-online")[0][0],
+                  iconClss: "icon is-large",
+                  attr: {"data-aos":"fade-right"}
+              ),
+              Button(
+                  glob.content.isA("tomail"),
+                  "is-large",
+                  glob.content.isADyn("contact-online")[4][1],
+                  icon: glob.content.isADyn("contact-online")[4][0],
+                  iconClss: "icon is-large",
+                  attr: {"data-aos":"fade-left"}
+              )
+            ])
         ])
-      ])
-
     ]);
-
   }
+
 }
