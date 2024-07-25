@@ -29,14 +29,14 @@ class Base {
           $.link({"rel":"icon", "type":"image/png", "href":"favicon.png"}),
           $.title(title, desc??""),
 
-          glob.config.testing!="true"?production():[],
+          glob.config.testing()!="true"?production():[],
 
           $.link({"rel": "stylesheet", "href": "https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css"}),
           $.script("", {"src": "https://kit.fontawesome.com/bc898b5c24.js",  "crossorigin":"anonymous"}),
           $.script("", {"src": "https://code.jquery.com/jquery-3.7.1.slim.min.js", "integrity": "sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=", "crossorigin":"anonymous"}),
           $.link({"rel": "stylesheet", "href":"https://unpkg.com/aos@next/dist/aos.css"}),
-          $.link({"rel": "stylesheet", "href":"/${glob.config.lib_path}/base.css"}),
-          $.script("", {"src":"/${glob.config.lib_path}/carousel.js"})
+          $.link({"rel": "stylesheet", "href":"/${glob.config.lib_path()}/base.css"}),
+          $.script("", {"src":"/${glob.config.lib_path()}/carousel.js"})
         ]),
         $.body()(c: body),
         footer(),

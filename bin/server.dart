@@ -73,15 +73,15 @@ void main(List<String> args) async {
     await config.read() ? null : exit(-1);
   }
 
-  setLogLevel(config.log_level);
+  setLogLevel(config.log_level());
 
   Timer.periodic(const Duration(minutes: 5), (timer) async{
     await config.read();
-    setLogLevel(config.log_level);
+    setLogLevel(config.log_level());
   });
 
   Logger.root.onRecord.listen((record) {
-    config.testing=="true"?print(record.message):null;
+    config.testing()=="true"?print(record.message):null;
   });
 
 
@@ -92,30 +92,30 @@ void main(List<String> args) async {
   Content content = Content("content_tr.json", log);
   await content.read()?null:exit(-1);
 
-  ImgFiles img = ImgFiles(join(config.static_path,config.profile_img_path), log);
+  ImgFiles img = ImgFiles(join(config.static_path(),config.profile_img_path()), log);
   await img.update();
 
 
   /*
   * External Sources
   */
-  Tsv form1 = Tsv(config.gform1_file,
+  Tsv form1 = Tsv(config.gform1_file(),
       log,
-      config.gform1_titles.split(","),
-      config.gform1_url,
+      config.gform1_titles().split(","),
+      config.gform1_url(),
       content.isADyn("consultancies")[0]["title"]
   );
   if(! await form1.read()){ await form1.update(); }
 
-  Tsv form2 = Tsv(config.gform2_file,
+  Tsv form2 = Tsv(config.gform2_file(),
       log,
-      config.gform2_titles.split(","),
-      config.gform2_url,
+      config.gform2_titles().split(","),
+      config.gform2_url(),
       content.isADyn("consultancies")[1]["title"]
   );
   if(! await form2.read()){ await form2.update(); }
 
-  Atom blog1 = Atom(config.blog1_file, log, DateTime.utc(2020), config.blog1_url);
+  Atom blog1 = Atom(config.blog1_file(), log, DateTime.utc(2020), config.blog1_url());
   if(! await blog1.read()){ await blog1.update(); }
 
   Timer.periodic(const Duration(hours: 6), (timer) async{
@@ -149,7 +149,7 @@ void main(List<String> args) async {
   PageNotFound pageNotFound = PageNotFound(glob);
 
 
-  var staticHandler = Pipeline().addHandler(createStaticHandler(config.static_path));
+  var staticHandler = Pipeline().addHandler(createStaticHandler(config.static_path()));
 
 
   final router = Router()
@@ -180,7 +180,7 @@ void main(List<String> args) async {
   final server = await serve(
       logRequests(logger: shelfLogger).addHandler(cascade.handler),
       ip,
-      int.parse(config.server_port));
+      int.parse(config.server_port()));
 
   log.info('Server listening on port ${server.port}');
 }
