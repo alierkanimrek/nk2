@@ -455,6 +455,13 @@ img{
     box-shadow: 3px 3px 8px 0px;
 }
 
+.logo{
+    border-radius: 0;
+    box-shadow: none;
+    -webkit-filter: drop-shadow(2px 2px 2px #888);
+    filter: drop-shadow(2px 2px 2px #888);
+}
+
 .indexcomment{
     line-height: 1.8rem;
     word-spacing: .3rem;

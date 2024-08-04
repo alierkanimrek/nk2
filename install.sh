@@ -24,7 +24,7 @@ mkdir /etc/nk2
 cp nk2/bin/config.json.template /etc/nk2/config.json
 nano /etc/nk2/config.json
 read -p "Ready for service installation..." x
-read -p "Please change username in service script"
+read -p "Please change username in service script" x
 nano nk2/nk2.service
 cp -v nk2/nk2.service /lib/systemd/system/nk2.service
 systemctl daemon-reload
