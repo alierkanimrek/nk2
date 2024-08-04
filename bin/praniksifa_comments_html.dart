@@ -1,5 +1,4 @@
 import 'package:shelf/shelf.dart';
-import 'html.dart';
 import 'base_html.dart';
 import 'tsv.dart';
 import 'widgets_html.dart';
@@ -44,42 +43,43 @@ class PranikSifaComments extends Base {
 
   List<String> theme() {
 
-    return tComment("\n\n", [
-      tDiv("columns", c:[
-        tDiv("column is-8 is-offset-2", c: tforeach(form.revRecList, (Map<String, String> comment){
-
-          return tDiv("container", c:[
-            tagx("a", attr: {"id": comment["pos"]!}),
-            tDiv("card m-4 mb-6", attr:{"data-aos":"fade-up"}, c: [
-              tDiv("card-content", c: [
-                tDiv("media m-0",  c:[
-                  tDiv("media-left", c:[
-                    tagx("figure image", c:[
-                      tagx("i fa-regular fa-2x fa-comment", attr:{"data-aos":"fade-right"})
+    return 
+      $.fake([
+      $.div("columns")( c:[
+        $.div("column is-8 is-offset-2")( c: [$.forEach(form.revRecList, (Map<String, String> comment){
+          return
+            $.div("container")(c:[
+            $.a("")(a: {"id": comment["pos"]!}),
+            $.div("card m-4 mb-6")(a:{"data-aos":"fade-up"}, c: [
+              $.div("card-content")(c: [
+                $.div("media m-0")(c:[
+                  $.div("media-left")( c:[
+                    $.figure("image")( c:[
+                      $.i("fa-regular fa-2x fa-comment")(a:{"data-aos":"fade-right"})
                     ])
                   ]),
-                  tDiv("media-content",  c:[
-                    tagx("p title is-5", attr:{"data-aos":"fade-left"}, after_c: "@${comment["nickname"]!}"),
-                    tagx("p subtitle is-7 has-text-right has-text-grey-light", after_c: comment["time"]!.split(" ")[0])
+                  $.div("media-content")(c:[
+                    $.p("title is-5")(a:{"data-aos":"fade-left"}, after: "@${comment["nickname"]!}"),
+                    $.p("subtitle is-7 has-text-right has-text-grey-light")(after: comment["time"]!.split(" ")[0])
                   ])
                 ]),
-                tagx("div content", attr:{"data-aos":"fade-up"}, after_c: comment["comment"]),
-                tDiv("columns is-mobile is-justify-content-center", c:[
-                  tDiv("column is-half p-0 has-text-left", c:[
-                    tagx("span icon", c:[
-                      tagx("a", attr: {"href":backUrl},c:[tagx("i txt-shadow fa-solid fa-chevron-left")])
+                $.div("content")(a:{"data-aos":"fade-up"}, after: comment["comment"]),
+                $.div("columns is-mobile is-justify-content-center")(c:[
+                  $.div("column is-half p-0 has-text-left")(c:[
+                    $.span("icon")(c:[
+                      $.a(backUrl)(c:[$.i("txt-shadow fa-solid fa-chevron-left")()])
                     ])
                   ]),
-                  tDiv("column is-half p-0 has-text-right", c:[
-                    tagx("span icon", c:[
-                      tagx("a", attr: {"href":glob.content.isADyn("consultancies")[2]["url"]},c:[tagx("i txt-shadow fa-solid fa-info")])
+                  $.div("column is-half p-0 has-text-right")(c:[
+                    $.span("icon")( c:[
+                      $.a(glob.content.isADyn("consultancies")[2]["url"])(c:[$.i("txt-shadow fa-solid fa-info")()])
                     ])
                   ])
                 ])
               ])
             ])
           ]);
-        }))
+        })])
       ])
     ]);
   }
@@ -89,7 +89,7 @@ class PranikSifaComments extends Base {
 
   List<String> foot() {
     return footBack(backUrl, [
-      tDiv("title", c: [ [glob.content.isADyn("consultancies")[0]["title"]] ])
+      $.div("title")( c: [ [glob.content.isADyn("consultancies")[0]["title"]] ])
     ]);
   }
 

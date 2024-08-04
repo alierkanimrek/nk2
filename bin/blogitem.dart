@@ -1,14 +1,6 @@
-import 'dart:math';
-
 import 'package:shelf/shelf.dart';
 import 'atom.dart';
-import 'carousel.dart';
-import 'html.dart';
-import 'config.dart';
 import 'base_html.dart';
-import 'subbase_html.dart';
-import 'tsv.dart';
-import 'utils.dart';
 import 'widgets_html.dart';
 
 
@@ -47,9 +39,9 @@ class BlogItem extends Base {
 
 
   List<String> theme() {
-    return tDiv("columns", c:[
-      tDiv("column is-8 is-offset-2", c:[
-        tagx("div", attr:{"data-aos":"fade-up"}, after_c: item.content),
+    return $.div("columns")( c:[
+      $.div("column is-8 is-offset-2")( c:[
+        $.div()(a:{"data-aos":"fade-up"}, after: item.content),
       ])
     ]);
   }
@@ -60,19 +52,18 @@ class BlogItem extends Base {
 
 
   List<String> foot() {
-    return footBack(backUrl, [
-      tDiv("column", c:[
-        tDiv("columns is-mobile", c: tforeach([blog.random, blog.random, blog.random], (item){
-
-          return tDiv("column is-4", attr: {"data-aos":"fade-left"}, c:[
-            tDiv("box ", c:[
-              tagx("h6", after_c: item.title!)
+    return
+      footBack(backUrl, [
+      $.div("column")( c:[
+        $.div("columns is-mobile")( c: [$.forEach([blog.random, blog.random, blog.random], (item){
+          return $.div("column is-4")(a: {"data-aos":"fade-left"}, c:[
+            $.div("box")( c:[
+              $.h6()(after: item.title)
             ])
           ]);
-
-        })),
+        })]),
       ])
-    ]);
+      ]);
   }
 
 

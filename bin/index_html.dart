@@ -1,7 +1,6 @@
 import 'package:shelf/shelf.dart';
 
 import 'atom.dart';
-import 'html.dart';
 import 'base_html.dart';
 import 'utils.dart';
 import 'widgets_html.dart';
@@ -54,32 +53,41 @@ class Index extends Base{
 
     int aosDelay = 1400;
 
-    return tComment("\nHero Section", [
-      tDiv("header-wrapper", attr:{"id":"home"},c:[
-        tagx("section hero hero-index is-medium", attr:{"style":"""
+    return 
+      $.fake([
+      $.comment("\nHero Section"),
+      $.div("header-wrapper")( a:{"id":"home"},c:[
+        $.section("hero hero-index is-medium")( a:{"style":"""
           background-image: url(/img/${glob.img.pick(prefix: 'intro-')});
           background: linear-gradient(rgba(31, 44, 108, 0.65), rgba(31, 44, 108, 0.65)), rgba(0, 0, 0, 0.55) url(/img/${glob.img.pick(prefix: 'intro-')}) no-repeat;
           background-attachment: fixed;
           background-size: cover;
         """}, c:[
-          tDiv("hero-body", c:[
-            tDiv("container has-text-centered", c:[
-              tagx("figure avatar", attr:{"id":"avatar", "data-aos":"fade-in", "data-aos-delay":"400"},  c:[
-                tagx("img", attr:{"src":"/img/${glob.img.pick(prefix: 'profile-')}"})
+          $.div("hero-body")( c:[
+            $.div("container has-text-centered")( c:[
+              $.figure("avatar")( a:{"id":"avatar", "data-aos":"fade-in", "data-aos-delay":"400"},  c:[
+                $.img("/img/${glob.img.pick(prefix: 'profile-')}", "")()
               ]),
-              tDiv("container", attr:{ "data-aos":"fade-in", "data-aos-delay":"800", "data-aos-anchor":"avatar"}, c:[
-                tagx("h2 title txt-shadow",  after_c:glob.content.isA("name"))
+              $.div("container")( a:{ "data-aos":"fade-in", "data-aos-delay":"800", "data-aos-anchor":"avatar"}, c:[
+                $.h2("title txt-shadow")( after:glob.content.isA("name"))
               ]),
-              tagx("h1 subtitle profession txt-shadow", attr:{"data-aos":"fade-in", "data-aos-delay":"1200", "data-aos-anchor":"avatar"}, after_c:glob.content.isA("profession")),
-              tDiv("columns is-mobile is-centered p-2", c:[
-                tDiv("column p-0",  c:[
-                  tDiv("columns is-justify-content-center is-mobile", c: tforeach(glob.content.isADyn("contact-online"), (dynamic e){
-                    aosDelay += 200;
-                    return tDiv("column is-narrow px-0", attr:{"data-aos":"fade-in", "data-aos-delay":"$aosDelay", "data-aos-anchor":"avatar"}, c:[tagx("span icon is-large", c:[
-                      tagx("a", attr: {"href":e[1]},c:[tagx(["i", e[0], "fa-2x", "txt-shadow"].join(" "))])
-                    ])]);
-                  })
-                  )
+              $.h1("subtitle profession txt-shadow")( a:{"data-aos":"fade-in", "data-aos-delay":"1200", "data-aos-anchor":"avatar"}, after:glob.content.isA("profession")),
+              $.div("columns is-mobile is-centered p-2")( c:[
+                $.div("column p-0")( c:[
+                  $.div("columns is-justify-content-center is-mobile")( c: [
+                    $.forEach(glob.content.isADyn("contact-online"), (e){
+                      e as List<dynamic>;
+                      aosDelay += 200;
+                      return
+                        $.div("column is-narrow px-0")( a:{"data-aos":"fade-in", "data-aos-delay":"$aosDelay", "data-aos-anchor":"avatar"}, c:[
+                          $.span("icon is-large")( c:[
+                            $.a(e[1])( c:[
+                              $.i([e[0], "fa-2x", "txt-shadow"].join(" "))()
+                            ])
+                          ])
+                        ]);
+                    })
+                  ])
                 ])
               ]),
             ]),
@@ -95,20 +103,21 @@ class Index extends Base{
 
   List<String> mainSection() {
 
-    return tComment("", tforeach( glob.content.isADyn("consultancies"), (dynamic e){
-      return subContainer1("section-light", [
-        intro1(
-          e["title"],
-          e["intro"],
-          "/img/${glob.img.pick(prefix: e["img_prefix"])}",
-          buttontext: e["link-text"],
-          linkurl: e["url"],
-          titled: true,
-          direction: Direction.left
-        )
-      ]);
-   }));
-
+    return
+      $.forEach( glob.content.isADyn("consultancies"), (e){
+        e as Map<String, dynamic>;
+        return subContainer1("section-light", [
+          intro1(
+            e["title"]!,
+            e["intro"]!,
+            "/img/${glob.img.pick(prefix: e["img_prefix"])}",
+            buttontext: e["link-text"],
+            linkurl: e["url"],
+            titled: true,
+            direction: Direction.left
+          )
+        ]);
+      });
   }
 
 
@@ -131,21 +140,20 @@ class Index extends Base{
     glob.form1.length>1?content.add(createContent( glob.form1.randomRecList(1), form1Con["title"]!, form1Con["url"]!)):null;
     glob.form2.length>1?content.add(createContent( glob.form2.randomRecList(1), form2Con["title"]!, form2Con["url"]!)):null;
 
-    return tComment("", [
-      carousel1("car", content, (Map<String, String> rec){
-        return tDiv("content", c:[
-          tagx("span icon is-large", c:[ tagx("i fa-regular fa-comment fa-2x", attr:{"aria-hidden":"true"})]),
-          tagx("b", after_c: rec["subtitle"]),
-          tagx("p indexcomment is-size-5", before_c: shortOf(rec["comment"]!,25), c:[
-            rec["comment"]!.split(" ").length<=25?[]:
-            tagx("a button is-rounded is-small",
-              attr: {"href": rec["link"]!},
-              after_c: glob.content.isA("readmore")),
+    return
+       carousel1("car", content, (Map<String, String> rec){
+        return $.div("content")( c:[
+          $.span("icon is-large")( c:[
+            $.i("fa-regular fa-comment fa-2x")( a:{"aria-hidden":"true"})
+          ]),
+          $.b()(after: rec["subtitle"]),
+          $.p("indexcomment is-size-5")(before: shortOf(rec["comment"]!,25), c:[
+            rec["comment"]!.split(" ").length<=25
+              ?[]
+              :$.a( rec["link"]!,"button is-rounded is-small")( after: glob.content.isA("readmore")),
           ])
         ]);
-      })
-    ]);
-
+      });
   }
 
 

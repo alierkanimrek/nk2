@@ -1,8 +1,6 @@
 import 'package:shelf/shelf.dart';
 import 'atom.dart';
-import 'html.dart';
 import 'base_html.dart';
-import 'utils.dart';
 import 'widgets_html.dart';
 
 
@@ -34,15 +32,15 @@ class PranikSifaEgitimi extends Base{
             direction: Direction.right,
             titled: false
           ),
-          tDiv("container pt-3", c:[
+          $.div("container pt-3")( c:[
             vButtons( [
               Button(
-                  subContent["sub-content-1-text-1"],
-                  "is-large is-success",
-                  subContent["sub-content-1-url-1"],
-                  icon: "fa-solid fa-graduation-cap",
-                  iconClss: "icon is-large",
-                  attr: {"data-aos":"fade-right"}
+                subContent["sub-content-1-text-1"],
+                "is-large is-success",
+                subContent["sub-content-1-url-1"],
+                icon: "fa-solid fa-graduation-cap",
+                iconClss: "icon is-large",
+                attr: {"data-aos":"fade-right"}
               )
             ])
           ])
@@ -74,69 +72,66 @@ class PranikSifaEgitimi extends Base{
 
 
   List<String> comments() {
-
-    return tComment("\n", [
-      tagx("h1 title has-text-centered section-title", attr:{ "data-aos":"fade-left"}, after_c: subContent["sub-title-1"]),
-      tDiv("block", c:[
-        tagx("p has-text-centered mb-5", attr:{ "data-aos":"fade-right"}, after_c: subContent["sub-content-1"]),
-        vButtons([
-          Button(
+    return
+      $.fake([
+        $.h1("title has-text-centered section-title")(a:{ "data-aos":"fade-left"}, after: subContent["sub-title-1"]),
+        $.div("block")(c:[
+          $.p("has-text-centered mb-5")(a:{ "data-aos":"fade-right"}, after: subContent["sub-content-1"]),
+          vButtons([
+            Button(
               subContent["sub-content-1-text-2"],
               "is-large is-info",
               subContent["sub-content-1-url-2"],
               icon: "fa-regular fa-comments",
               iconClss: "icon is-large",
               attr: {"data-aos":"fade-up"}
-          )
+            )
+          ])
         ])
-      ])
-
-    ]);
-
+      ]);
   }
 
 
   List<String> subLinks() {
     Map<String, dynamic> sub1 = glob.content.isADyn("consultancies")[0];
     Map<String, dynamic> sub2 = glob.content.isADyn("consultancies")[3];
-    return tDiv("container", c: [
-      tDiv("columns", c:[
-        tDiv("column is-half has-text-centered", c:[
-          tagx("h1 title has-text-centered section-title", attr:{ "data-aos":"fade-right"}, after_c: sub1["sub-title-2"]),
-          tagx("p mb-4", attr:{ "data-aos":"fade-right"}, after_c: sub1["sub-content-2"]),
-          tagx("a button", attr:{"href": sub1["url"]!, "data-aos":"fade-up"}, after_c: sub1["link-text"])
+    return
+      $.div("container")( c: [
+      $.div("columns")( c:[
+        $.div("column is-half has-text-centered")( c:[
+          $.h1("title has-text-centered section-title")( a:{ "data-aos":"fade-right"}, after: sub1["sub-title-2"]),
+          $.p("mb-4")(a:{ "data-aos":"fade-right"}, after: sub1["sub-content-2"]),
+          $.a(sub1["url"]!,"button")( a:{"data-aos":"fade-up"}, after: sub1["link-text"])
         ]),
-        tDiv("column is-half has-text-centered", c:[
-          tagx("h1 title has-text-centered section-title", attr:{ "data-aos":"fade-left"}, after_c: sub2["sub-title-2"]),
-          tagx("p mb-4", attr:{ "data-aos":"fade-left"}, after_c: sub2["sub-content-2"]),
-          tagx("a button", attr:{"href": sub2["url"]!, "data-aos":"fade-up"}, after_c: sub2["link-text"])
+        $.div("column is-half has-text-centered")( c:[
+          $.h1("title has-text-centered section-title")(a:{ "data-aos":"fade-left"}, after: sub2["sub-title-2"]),
+          $.p("mb-4")(a:{ "data-aos":"fade-left"}, after: sub2["sub-content-2"]),
+          $.a(sub2["url"]!, "button")( a:{"data-aos":"fade-up"}, after: sub2["link-text"])
         ])
       ])
     ]);
-
   }
 
 
-  List<String> sub1() {
 
-    return tComment("\n", [
-      tagx("h1 title has-text-centered section-title", attr:{ "data-aos":"fade-left"}, after_c: subContent["sub-title-3"]),
-      tDiv("block", c:[
-        tagx("p has-text-centered mb-5", attr:{ "data-aos":"fade-right"}, after_c: subContent["sub-content-3"]),
+  List<String> sub1() {
+    return
+      $.fake([
+      $.h1("title has-text-centered section-title")( a:{ "data-aos":"fade-left"}, after: subContent["sub-title-3"]),
+      $.div("block")( c:[
+        $.p("has-text-centered mb-5")(a:{ "data-aos":"fade-right"}, after: subContent["sub-content-3"]),
         vButtons([
           Button(
-              glob.content.isA("follow-on-instagram"),
-              "is-large",
-              glob.content.isADyn("contact-online")[0][1],
-              icon: glob.content.isADyn("contact-online")[0][0],
-              iconClss: "icon is-large",
-              attr: {"data-aos":"fade-up"}
+            glob.content.isA("follow-on-instagram"),
+            "is-large",
+            glob.content.isADyn("contact-online")[0][1],
+            icon: glob.content.isADyn("contact-online")[0][0],
+            iconClss: "icon is-large",
+            attr: {"data-aos":"fade-up"}
           )
         ])
       ])
-
     ]);
-
   }
 
 }

@@ -1,6 +1,4 @@
 import 'package:shelf/shelf.dart';
-
-import 'html.dart';
 import 'base_html.dart';
 
 
@@ -30,48 +28,53 @@ class SubBase extends Base{
 
   List<String> heroSection() {
 
-    return tComment("\nHero Section", [
-      tDiv("header-wrapper pb-0", attr:{"id":"home"},c:[
-        tagx("nav navbar", c:[
-          tDiv("navbar-brand", c:[
-            tDiv("columns is-vcentered is-mobile m-1", c:[
-              tDiv("column is-narrow", c:[
-                tagx("span icon is-medium", c:[
-                  tagx("a", attr: {"href":"/", "data-aos":"fade-left"}, c:[tagx("i fa-solid fa-chevron-left fa-2x txt-shadow")])
+    return 
+      $.fake([
+      $.div("header-wrapper pb-0")(a:{"id":"home"},c:[
+        $.nav("navbar")(c:[
+          $.div("navbar-brand")(c:[
+            $.div("columns is-vcentered is-mobile m-1")(c:[
+              $.div("column is-narrow")(c:[
+                $.span("icon is-medium")(c:[
+                  $.a("/")(a: {"data-aos":"fade-left"}, c:[
+                    $.i("fa-solid fa-chevron-left fa-2x txt-shadow")()
+                  ])
                 ]),
               ]),
-              tDiv("column is-narrow", c:[
-                tagx("a", attr: {"href":"/", "data-aos":"fade-left"}, c:[tagx("h4 title txt-shadow", after_c:glob.content.isA("name"))])
+              $.div("column is-narrow")(c:[
+                $.a("/")(a: {"data-aos":"fade-left"}, c:[
+                  $.h4("title txt-shadow")( after:glob.content.isA("name"))])
               ]),
-              /*tDiv("column"),
-              tDiv("column is-narrow", c:[
-                tDiv("columns is-mobile", c: tforeach(glob.content.isADyn("contact-online"), (dynamic e){
-                  return tDiv("column", c:[
-                    tagx("span icon is-small", c:[
-                      tagx("a", attr: {"href":e[1]},c:[tagx(["i", e[0], "txt-shadow"].join(" "))])
+              /*$.div("column"),
+              $.div("column is-narrow")(c:[
+                $.div("columns is-mobile")(c: tforeach(glob.content.isADyn("contact-online"), (dynamic e){
+                  return $.div("column")(c:[
+                    $.span("icon is-small")(c:[
+                      $.a("")(a: {"href":e[1]},c:[tagx(["i", e[0], "txt-shadow"].join(" "))])
                   ])]);
                 }))
               ])*/
             ]),
           ]),
         ]),
-        tagx("section hero hero-sub1 is-small", c:[
-          tDiv("hero-body", c:[
-            tDiv("container has-text-centered",  c:[
-              tDiv("columns is-vcentered is-mobile", c:[
-                tDiv("column is-narrow", c:[
-                  tagx("span icon is-large", c:[
-                    tagx("a", attr: {"href":backUrl, "data-aos":"fade-left"}, c:[tagx("i fa-solid fa-chevron-left fa-3x txt-shadow")])
+        $.section("hero hero-sub1 is-small")(c:[
+          $.div("hero-body")(c:[
+            $.div("container has-text-centered")( c:[
+              $.div("columns is-vcentered is-mobile")(c:[
+                $.div("column is-narrow")(c:[
+                  $.span("icon is-large")(c:[
+                    $.a(backUrl)(a: {"data-aos":"fade-left"}, c:[
+                      $.i("fa-solid fa-chevron-left fa-3x txt-shadow")()
+                    ])
                   ]),
                 ]),
-                tDiv("column", c:[
-                  tagx("h2 title p-5", attr:{"data-aos":"fade-down"}, after_c:title),
+                $.div("column")(c:[
+                  $.h2("title p-5")(a:{"data-aos":"fade-down"}, after:title),
                 ]),
               ]),
             ]),
           ]),
         ])
-
       ])
     ]);
 

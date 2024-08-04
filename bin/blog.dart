@@ -1,14 +1,6 @@
-import 'dart:math';
-
 import 'package:shelf/shelf.dart';
 import 'atom.dart';
-import 'carousel.dart';
-import 'html.dart';
-import 'config.dart';
 import 'base_html.dart';
-import 'subbase_html.dart';
-import 'tsv.dart';
-import 'utils.dart';
 import 'widgets_html.dart';
 
 
@@ -44,10 +36,9 @@ class BlogIndex extends Base {
 
 
   List<String> theme() {
-    return tComment("\n\n", [tDiv("container",
-      c: tforeach(blog.entries, (AtomEntry entry){
-
-        return tDiv("box m-4 mb-6", c: [
+    return
+      $.div("container")(c: [$.forEach(blog.entries, (AtomEntry entry){
+        return $.div("box m-4 mb-6")( c: [
           intro1(
             entry.title,
             entry.summary,
@@ -58,9 +49,8 @@ class BlogIndex extends Base {
             linkurl: "/blog/"+entry.id
           )
         ]);
+      })]);
 
-      }))
-    ]);
   }
 
 
