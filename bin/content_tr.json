@@ -1,6 +1,7 @@
 {
   "domain" : "nuraykaya.com",
   "name": "Nuray Kaya",
+  "desc": "Bu sayfa Nuray Kaya'nın kişisel sitesidir. Pranik Şifa ve Numeroloji alanlarında danışmanlık hizmeti vermektedir. Ayrıca Pranik Şifa Eğitimleri düzenler ve İkiz Kalpler Meditasyonu öğretmektedir.",
   "profession": "Aile Danışmanı, Pranik Şifa Eğitmeni, Numerolog",
   "contact-online": [
     ["fa-brands fa-whatsapp", "https://chat.whatsapp.com/HwfCyamphor4fF68jtPfOH"],
@@ -17,6 +18,7 @@
   "consultancy_title" : "Danışmanlık",
   "consultancies": [
     {"title": "Pranik Şifa Danışmanlığı",
+      "desc": "Fiziksel ve psikolojik rahatsızlıkların tedavisi için yapılan Pranik Şifa seansları hakkında bilgiler. Reiki ve bioenerji gibi bir çalışmadır.",
       "img_prefix": "healing-",
       "intro": "Tıp doktorları fiziksel beden üzerine, psikoloji uzmanları ise duygu ve düşünceler üzerine çalışırlar. Ancak yaşam ve varlığın farklı katmanları ve bağlantıları vardır, daha hızlı iyileşme için modern tıp uygulamaları ile birlikte diğer katmanlarda da çalışmak gerekir.",
       "url": "/pranik-sifa-danismanligi",
@@ -30,6 +32,7 @@
       "sub-content-2": "Psikolojik veya fiziksel tüm sorunlar enerji bedende tespit edilebilir ve kolaylıkla uzaklaştırılabilir."
     },
     {"title": "Numeroloji Danışmanlığı",
+      "desc": "Numeroloji seansı hakkında bilgiler.",
       "img_prefix": "numerology-",
       "intro": "Yaşamda veya ilişkilerde neden olduğuna anlam veremediğiniz oluşum, süreç, yönelim, başlangıç veya bitişleri anlamak, tekrar eden konuları çözümlemek, geçmiş ve geleceğe yüksek bir farkındalık ile bakabilmek için size özel sayı sembolleriniz yorumlanabilir.",
       "url": "/numeroloji-danismanligi",
@@ -41,6 +44,7 @@
       "sub-content-3": "Yorumlanmasını istediğiniz durumu ve iletişim bilgilerinizi yazarsanız, size dönüş yapacağım."
     },
     {"title": "Pranik Şifa Eğitimi",
+      "desc": "Pranik Şifa yapmayı öğrenmek için gerekli bilgiler.",
       "img_prefix": "seminar1-",
       "intro": "Aura ve yaşam enerjisinin temellerini anlamak için Master Choa Kok Sui'nin 30 yıllık araştırma ve uygulamalarının sonuçlarını deneyimleyeceğiniz Dünya Pranik Şifa Vakfı'nın 2 günlük seminerine katılabilirsiniz.",
       "url": "/pranik-sifa-egitimi",
@@ -58,6 +62,7 @@
       "sub-content-3": "Yaklaşan eğitimleri Whatsapp topluluğumdan ve Instagram hesabımdan paylaşıyorum, katılmak için duyuruları takip edin."
     },
     {"title": "Kişisel Gelişim",
+      "desc": "İkiz Kalpler Meditasyonu ve Arhatik Yoga hakkında bilgiler.",
       "img_prefix": "arhatik-yoga-",
       "intro": "Kalıcı değişimler içeriden dışarıya doğru gerçekleşir, değişmesi gereken şeyin kendiniz olduğunu kabul ettiğiniz anda her şey dönüşmeye başlar. Bu çalışma bir evi yıkıp yeniden inşa etmeye benzer ve önemli miktarda içsel enerji gerektirir.",
       "url": "/kisisel-gelisim",

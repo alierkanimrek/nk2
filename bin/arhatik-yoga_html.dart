@@ -47,7 +47,7 @@ class ArhatikYoga extends Base{
           ]),
         subContainer1("section-light", [ subLinks() ]),
       ]),
-    ]);
+    ], desc: subContent["desc"]!);
 
     return Response.ok(
         render.join(),

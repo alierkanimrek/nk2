@@ -59,7 +59,7 @@ class PranikSifa extends Base{
           subLinks()
         ])
       ])
-    ]);
+    ], desc: subContent["desc"]!);
 
 
     return Response.ok(

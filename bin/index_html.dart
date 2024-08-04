@@ -36,7 +36,7 @@ class Index extends Base{
           )
         ])
       ])
-    ]);
+    ], desc: glob.content.isA("desc"));
 
     return Response.ok(
         render.join(),

@@ -39,7 +39,7 @@ class Numeroloji extends Base{
         ]),
         subContainer1("section-light", [ sub1() ]),
       ])
-    ]);
+    ], desc: subContent["desc"]!);
 
     return Response.ok(
         render.join(),
