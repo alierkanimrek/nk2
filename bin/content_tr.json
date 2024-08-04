@@ -3,6 +3,7 @@
   "name": "Nuray Kaya",
   "profession": "Aile Danışmanı, Pranik Şifa Eğitmeni, Numerolog",
   "contact-online": [
+    ["fa-brands fa-whatsapp", "https://chat.whatsapp.com/HwfCyamphor4fF68jtPfOH"],
     ["fab fa-instagram", "https://instagram.com/pranic.arhat.yoga"],
     ["fab fa-facebook", "https://facebook.com/turuncu64"],
     ["fab fa-youtube", "https://www.youtube.com/channel/UCqeqZ7VC4TXdDSaHB9gh2ow"],
@@ -54,7 +55,7 @@
       "sub-title-2": "Pranik Şifa Uygulamasını siz de yapabilirsiniz",
       "sub-content-2": "Pranik Şifa'nın öğrenmesi ve uygulaması kolaydır, özel bir yetenek gerektirmez.",
       "sub-title-3": "Eğitimleri kaçırmayın",
-      "sub-content-3": "Yaklaşan eğitimleri Instagram hesabımdan paylaşıyorum, katılmak için duyuruları takip edin."
+      "sub-content-3": "Yaklaşan eğitimleri Whatsapp topluluğumdan ve Instagram hesabımdan paylaşıyorum, katılmak için duyuruları takip edin."
     },
     {"title": "Kişisel Gelişim",
       "img_prefix": "arhatik-yoga-",
@@ -63,7 +64,7 @@
       "link-text": "Daha fazla bilgi",
       "full" : "<ul class='has-text-left' style='line-height: 2rem;'><li>Sağlığınızı geliştirin</li><li>Stres, endişe ve depresyonu azaltın</li><li>Zekanızı berraklaştırın</li><li>Öz saygınızı arttırın</li><li>İlişkilerinizi geliştirin</li><li>Koşulsuz sevgiyi deneyimleyin</li><li>Karmanızı iyileştirin</li></ul><p>Tüm bunlar 20 dakikalık basit bir uygulamanın vaat ettikleridir.</p><p>Fiziksel, düşünsel ve eterik dönüşüm için gerekli enerji Master Choa Kok Sui'nin Arhatik Yoga teknikleri ile dengeli bir şekilde sağlanır. Bu çalışmanın merkezindeki giriş kapısı ise ilahi sevgi ve merhamet üzerine yapılan <b>İkiz Kalpler Meditasyonu</b>'dur.</p><p>Daha fazla bilgi için Dünya Pranik Şifa Vakfı'nın <a href='https://www.thepranichealers.com/pages/tr/our-system/twin-hearts' target='_blank'>İkiz Kalpler Meditasyonu hakkındaki</a> bilgilerine bakın.",
       "sub-title-1": "İkiz Kalpler Meditasyonuna katılın",
-      "sub-content-1": "Her hafta online olarak Master Choa Kok Sui'nin İkiz Kalpler Meditasyonu'nu yapıyoruz, katılmak için duyuruları Instagram hesabımdan takip edin.",
+      "sub-content-1": "Her hafta online olarak Master Choa Kok Sui'nin İkiz Kalpler Meditasyonu'nu yapıyoruz, katılmak için duyuruları Whatsapp topluluğumdan ve Instagram hesabımdan takip edin.",
       "sub-title-2": "Temiz bir aura ve farkındalık için harika bir yöntem",
       "sub-content-2": "Her hafta İkiz Kalpler Meditasyonu yapıyoruz, bu harika enerjiyi deneyimlemek için bize katılın."
     }
@@ -83,5 +84,6 @@
   "404-intro": "Başka bir adrese taşınmış olabilir, lütfen ana sayfayı ziyaret edin.",
   "follow-on-instagram": "Instagram'dan takip et",
   "dm-on-instagram": "Instagram'dan yaz",
+  "join-on-whatsapp": "Whatsapp'tan katıl",
   "tomail": "E-posta yaz"
 }

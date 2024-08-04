@@ -160,7 +160,7 @@ List<String> vButtons(List<Button> buttons){
       return $.div("column txt-centered")( c:[
         $.a(button.url, "button "+button.clss)( a:attr, c:[
           button.icon!=null?$.span("icon "+iconClss)( c:[
-            $.i(button.icon!)()]):[],
+            $.i("${button.icon!} is-size-3")()]):[],
           $.span()(after: button.text)
         ])
       ]);

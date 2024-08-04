@@ -49,10 +49,8 @@ class RawFile {
 
 
   void err(Object e, List<dynamic> msg){
-    _err = e;
-    msg.add(_err);
     List<String> n = msg.map((l) => l.toString()).toList();
-    log.severe(n, [e]);
+    log.severe(n.join(", "), [e]);
   }
 
   String get fn{ return _fn; }

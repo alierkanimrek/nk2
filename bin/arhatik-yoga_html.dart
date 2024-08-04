@@ -59,17 +59,25 @@ class ArhatikYoga extends Base{
   List<String> sub1() {
     return
       $.fake([
-      $.h1("title has-text-centered section-title")( a:{ "data-aos":"fade-left"}, after: subContent["sub-title-1"]),
+      $.h1("title has-text-centered section-title")( a:{ "data-aos":"fade-down"}, after: subContent["sub-title-1"]),
       $.div("block")( c:[
-        $.p("has-text-centered mb-5")(a:{ "data-aos":"fade-right"}, after: subContent["sub-content-1"]),
+        $.p("has-text-centered mb-5")(a:{ "data-aos":"fade-up"}, after: subContent["sub-content-1"]),
         vButtons([
           Button(
-            glob.content.isA("follow-on-instagram"),
-            "is-large",
-            glob.content.isADyn("contact-online")[0][1],
-            icon: glob.content.isADyn("contact-online")[0][0],
-            iconClss: "icon is-large",
-            attr: {"data-aos":"fade-up"}
+              glob.content.isA("join-on-whatsapp"),
+              "is-large",
+              glob.content.isADyn("contact-online")[0][1],
+              icon: glob.content.isADyn("contact-online")[0][0],
+              iconClss: "icon is-large",
+              attr: {"data-aos":"fade-right"}
+          ),
+          Button(
+              glob.content.isA("dm-on-instagram"),
+              "is-large",
+              glob.content.isADyn("contact-online")[1][1],
+              icon: glob.content.isADyn("contact-online")[1][0],
+              iconClss: "icon is-large",
+              attr: {"data-aos":"fade-left"}
           )
         ])
       ])
@@ -77,30 +85,6 @@ class ArhatikYoga extends Base{
   }
 
 
-
-  List<String> buttons() {
-    return subContainer1("section-light", [
-      vButtons([
-        Button(
-            glob.content.isA("writecomment"),
-            "is-large is-success",
-            "/pranik-sifa-danismanligi/randevu",
-            icon: "fa-regular fa-comment-dots",
-            iconClss: "icon is-large",
-            attr: {"data-aos":"fade-right"}
-        ),
-        Button(
-            glob.content.isA("readall"),
-            "is-large is-info ",
-            "/pranik-sifa-danismanligi/yorumlar",
-            icon: "fa-regular fa-comments",
-            iconClss: "icon is-large",
-            attr: {"data-aos":"fade-left"}
-        )
-      ])
-    ]);
-
-  }
 
 
 
