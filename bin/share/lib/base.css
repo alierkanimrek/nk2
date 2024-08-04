@@ -464,6 +464,6 @@ img{
 
 .indexcomment{
     line-height: 1.8rem;
-    word-spacing: .3rem;
-    letter-spacing: .1rem;
+    word-spacing: .2rem;
+    /*letter-spacing: .1rem;*/
 }

@@ -130,6 +130,7 @@ class Index extends Base{
     Map<String, String> createContent (List<Map<String, String>> rec, String subtitle, String link) {
       return {
         "comment": rec[0]["comment"]!,
+        "nickname": rec[0]["nickname"]!,
         "subtitle": subtitle,
         "link": "$link/yorumlar#${rec[0]["pos"]!}",
       };
@@ -143,14 +144,15 @@ class Index extends Base{
     return
        carousel1("car", content, (Map<String, String> rec){
         return $.div("content")( c:[
+          $.p("has-text-weight-bold mb-2")(before: rec["subtitle"]),
           $.span("icon is-large")( c:[
             $.i("fa-regular fa-comment fa-2x")( a:{"aria-hidden":"true"})
           ]),
-          $.b()(after: rec["subtitle"]),
+          $.b()(after: "@${rec["nickname"]}"),
           $.p("indexcomment is-size-5")(before: shortOf(rec["comment"]!,25), c:[
             rec["comment"]!.split(" ").length<=25
               ?[]
-              :$.a( rec["link"]!,"button is-rounded is-small")( after: glob.content.isA("readmore")),
+              :$.a( rec["link"]!,"button is-rounded")( after: glob.content.isA("readmore")),
           ])
         ]);
       });
